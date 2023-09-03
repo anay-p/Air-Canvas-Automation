@@ -84,7 +84,7 @@ body{
 }
 
 #canvas-container {
-    display: flex;
+    display: none;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
     position: relative;
     width: 90%;
@@ -187,3 +187,23 @@ padding: 1rem;
         font-size: 1rem;
      }
 }
+
+#loading {
+    width: 65px;
+    height: 65px;
+    margin: 20px auto;
+    border: 8px solid #7A8F8D;
+    border-top: 8px solid #000000;
+    border-radius: 50%;
+    animation: spin 1.0s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
