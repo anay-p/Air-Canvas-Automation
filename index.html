@@ -97,7 +97,7 @@
 
     const onScreen = document.getElementsByClassName("on-screen")[0]
     const resizeCanvas = () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth <= 768) {
         canvasElement.height = onScreen.clientHeight-30
         paintElement.height = onScreen.clientHeight-30
         canvasElement.width = canvasElement.height * (videoElement.videoWidth/videoElement.videoHeight)
