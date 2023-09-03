@@ -52,12 +52,6 @@ body{
     -o-transform: scale(-1, 1);
     transform: scale(-1, 1);
     filter: FlipH;
-    position: absolute;
-    /* transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%; */
-    top: 0;
-    left: 0;
     z-index: 0;
 }
 
@@ -68,10 +62,6 @@ body{
     transform: scale(-1, 1);
     filter: FlipH;
     position: absolute;
-    /* transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%; */
-    top: 0;
     left: 0;
     z-index: 1;
     background: transparent;
@@ -93,7 +83,7 @@ body{
     width: 100%;
     position: relative;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
-    
+
 }
 .wrapper{
     display: flex;
