@@ -132,7 +132,6 @@
       const deltaY = currentTouchY - initialTouchY;
 
       const newWidth = initialWidth + deltaY;
-      console.log(initialWidth, deltaY, newWidth);
 
       if (newWidth >= 50 && newWidth <= 400) {
         canvasElement.style.width = newWidth + 'px';
