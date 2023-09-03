@@ -97,6 +97,10 @@
 
     const onScreen = document.getElementsByClassName("on-screen")[0]
     const resizeCanvas = () => {
+      if (canvasElement.style.width) {
+        canvasElement.style.width = "";
+        paintElement.style.width = "";
+      }
       if (window.innerWidth <= 768) {
         canvasElement.height = onScreen.clientHeight-30
         paintElement.height = onScreen.clientHeight-30
@@ -110,6 +114,32 @@
       }
     }
     window.addEventListener('resize', resizeCanvas);
+
+    let initialTouchY;
+    let initialWidth;
+
+    onScreen.addEventListener('touchstart', (e) => {
+      initialTouchY = e.touches[0].clientY;
+      if (canvasElement.style.width) {
+        initialWidth = parseFloat(canvasElement.style.width)
+      } else {
+        initialWidth = canvasElement.width;
+      }
+    });
+
+    onScreen.addEventListener('touchmove', (e) => {
+      const currentTouchY = e.touches[0].clientY;
+      const deltaY = currentTouchY - initialTouchY;
+
+      const newWidth = initialWidth + deltaY;
+      console.log(initialWidth, deltaY, newWidth);
+
+      if (newWidth >= 50 && newWidth <= 400) {
+        canvasElement.style.width = newWidth + 'px';
+        paintElement.style.width = newWidth + 'px';
+      }
+    });
+
     //choose color
     const colorPicker = new iro.ColorPicker("#color-choice", {
       width: 80,
@@ -279,8 +309,8 @@
       onFrame: async () => {
         await hands.send({ image: videoElement });
       },
-      width: 4096,
-      height: 2160,
+      width: 1280,
+      height: 720,
     });
     camera.start();
   </script>
